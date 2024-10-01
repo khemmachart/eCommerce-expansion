@@ -30,9 +30,66 @@
 
     <main>
         <section>
-            <h2>Welcome to Project Structure</h2>
-            <p>This is the third sub-page of the website. More mock content to explore.</p>
-            <img src="https://via.placeholder.com/600x400" alt="Placeholder Image">
+            <h1 id="title">Software Architecture</h1>
+            <h2>Choosing MVVM with a Partial Adoption of Clean Architecture for Our Mobile App</h2>
+            <p>For the project structure, we prefer to use the MVVM (Model-View-ViewModel) pattern without fully adopting Clean Architecture. The main reason is that our application needs to focus on UI customization and localization for each market.</p>
+            
+            <h3>Advantages of MVVM</h3>
+            <p>MVVM is a great choice for mobile apps that emphasize the presentation layer, like ours, for several reasons:</p>
+            <ul>
+                <li><strong>Separation of concerns</strong>: MVVM decouples the UI from business logic, making it easier to manage and update the UI without disrupting other layers.</li>
+                <li><strong>Simplified testing</strong>: The ViewModel in MVVM can be unit tested independently of the UI, improving test coverage and reliability.</li>
+                <li><strong>Easier data binding</strong>: MVVM supports two-way data binding, which makes the UI more reactive and updates automatically when the data changes.</li>
+                <li><strong>Flexibility</strong>: Since the API manages most of the data, MVVM allows us to focus on UI variations for different markets without adding complexity.</li>
+            </ul>
+
+            <h2>Overview of Clean Architecture and MVVM</h2>
+            <h4>Clean Architecture Overview</h4>
+            <p>Clean Architecture, popularized by Robert C. Martin (Uncle Bob), emphasizes a strong separation of concerns. It divides software into multiple layers, such as:</p>
+            <ul>
+                <li><strong>Entities</strong>: representing core business objects,</li>
+                <li><strong>Use Cases/Interactors</strong>: containing the business logic,</li>
+                <li><strong>Interface Adapters</strong>: for translating between external systems like UIs or APIs, and</li>
+                <li><strong>Frameworks and Drivers</strong>: handling infrastructure such as databases or network calls.</li>
+            </ul>
+            <p>The idea is to keep the core business logic independent from external frameworks and platforms, promoting testability and flexibility across the entire system.</p>
+            <img src="images/page3/1.png" alt="Placeholder Image" style="width: 100%; height: auto;">
+
+            <h4>MVVM Pattern Overview</h4>
+            <p>MVVM is a design pattern that organizes code into three key components:</p>
+            <ul>
+                <li><strong>Model</strong>: Represents the data and business logic, usually fetched from a backend API.</li>
+                <li><strong>ViewModel</strong>: Acts as the intermediary between the Model and the View. It handles UI logic and prepares data for the View.</li>
+                <li><strong>View</strong>: The UI layer that displays data and interacts with the user.</li>
+            </ul>
+            <p>In mobile apps, the ViewModel plays a crucial role in handling user interactions and exposing data to the View, while the Model handles data-related logic.</p>
+            <img src="images/page3/2.png" alt="Placeholder Image" style="width: 100%; height: auto;">
+
+            <h2>Why We Avoid Fully Adopting Clean Architecture</h2>
+            <p>Given our team's context—being a small team with business goals focused mainly on UI (such as localization and different UI versions with a single codebase)—fully adopting Clean Architecture may be overkill.</p>
+            <p>While Clean Architecture offers modularity and scalability, it can introduce unnecessary complexity in mobile apps where the backend handles most of the business logic. Here's why:</p>
+            <ul>
+                <li><strong>In full-stack projects</strong> (e.g., a web app with both frontend and backend), <strong>Clean Architecture's modularity shines</strong>. You need to <strong>maintain consistency, decoupling, and clear boundaries</strong> between the frontend, backend, and various business layers. The backend often involves <strong>domain-specific logic</strong>, which <strong>Clean Architecture is designed to manage</strong>.</li>
+                <img src="images/page3/3.png" alt="Placeholder Image" style="width: 100%; height: auto;">
+                <li>In mobile apps, especially those with a simple frontend API consumption role, <strong>Architecture can feel heavy specially on the small team.</strong> Since the backend API handles the business logic and data, the mobile app is mostly responsible for UI and user interaction, which aligns well with MVVM's simpler structure.</li>
+                <li><strong>The Backend Controls Most of the Business Logic</strong> The majority of the business logic resides in the backend layer. Our mobile app primarily interacts with APIs to display data and handle user interactions, making MVVM an ideal pattern. This structure ensures that our app remains lightweight and UI-focused, delegating more complex business logic to the backend.</strong></li>
+                <img src="images/page3/4.png" alt="Placeholder Image" style="width: 100%; height: auto;">
+            </ul>
+
+            <h3>Breakdown of the Presentation Layer in a Mobile Application (Using Flutter)</h3>
+            <p>In mobile development, especially with frameworks like Flutter, we can adapt the MVVM pattern within the presentation layer. The ViewModel handles data from the backend, preparing it for the UI, while the View is responsible for displaying it to the user. This approach aligns well with the reactive nature of Flutter and allows us to focus on creating highly customizable user interfaces without the need to manage complex business logic.</p>
+            <img src="images/page3/5.png" alt="Placeholder Image" style="width: 100%; height: auto;">
+            <img src="images/page3/6.png" alt="Placeholder Image" style="width: 100%; height: auto;">
+
+            <h2>Backend for Frontend (BFF) Overview</h3>
+            <p>In cases where we need more control over business logic for specific mobile use cases, we can introduce a Backend for Frontend (BFF) layer. The BFF pattern is a design concept where a dedicated backend service is created to serve the needs of a specific frontend application. Rather than a generic API, the BFF is optimized for the UI it serves, offering:</p>
+            <ul>
+                <li><strong>Tailored responses</strong>: The BFF prepares API responses that are optimized for mobile apps, minimizing the amount of data processing needed on the client side.</li>
+                <li><strong>Decoupling business logic</strong>: Business logic specific to mobile apps (e.g., data aggregation, transformation) can be offloaded to the BFF, keeping the app lightweight.</li>
+                <li><strong>Performance improvements</strong>: By consolidating and streamlining API calls, the BFF improves performance and efficiency for mobile frontends.</li>
+            </ul>
+
+            <p>In summary, while Clean Architecture can be a powerful tool for full-stack projects, we've chosen to focus on MVVM for our mobile app due to its emphasis on the presentation layer and the simplicity it offers for managing UI variations. Our backend handles the majority of the business logic, making Clean Architecture feel overly complex for this use case. By focusing on MVVM and potentially integrating a BFF, we can ensure that our app remains efficient, scalable, and easy to maintain while keeping the UI flexible and highly customizable.</p>
         </section>
     </main>
 

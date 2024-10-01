@@ -30,9 +30,49 @@
 
     <main>
         <section>
-            <h2>Welcome to Technical Solution</h2>
-            <p>This is the second sub-page of the website. More mock content for another page.</p>
-            <img src="https://via.placeholder.com/600x400" alt="Placeholder Image">
+            <h1 id="title">Solutions</h1>
+            <p>To serve the business goals, instead of creating separate applications for each country, we can build a single application supporting localized elements based on the user's location or preferences.</p>
+            <img src="images/page2/page2.png" alt="Placeholder Image" style="width: 100%; height: auto;">
+            
+            <h2>Handling Multiple Entities/Countries</h2>
+
+            <h3>1. Single Codebase with Localization Features</h3>
+            <p>Using <strong>internationalization (i18n)</strong> and <strong>localization (l10n)</strong>, we can customize user experiences in different countries without needing separate apps. Localization is applied dynamically based on the user's location or settings.</p>
+
+            <h3>2. Feature Flags for Region-Specific Features</h3>
+            <ul>
+                <li><strong>Feature Flags</strong>: We can implement feature flagging systems to enable or disable features based on the user's region or country.</li>
+                <li><strong>Regional Customization</strong>: This includes region-specific payment methods, installment options, and tax configurations. The flexible architecture ensures that, while the core app is consistent, users in each region receive a locally tailored experience.</li>
+            </ul>
+
+            <h3>3. Compliance and Regulatory Handling</h3>
+            <ul>
+                <li><strong>Data Residency and Privacy</strong>: Ensure compliance with local data privacy laws (e.g., GDPR in Europe, PDPA in Singapore) by using country-specific data handling practices. Store data in regional data centers to meet residency requirements.</li>
+                <li><strong>Taxation and Regulatory Compliance</strong>: Implement tax handling systems that apply correct VAT/GST and other taxes based on the user's location. This is crucial for cross-border transactions and compliance with local regulations.</li>
+            </ul>
+
+            <h2>How Do Applications Detect Where the User Lives?</h2>
+            <p>Applications use multiple methods to detect a user’s location, even if language or region settings differ. Here are the most common techniques:</p>
+            <ul>
+                <li><strong>IP Address Geolocation</strong>: Typically reliable for determining a user’s country but may be less accurate for city-level detection.</li>
+                <li><strong>GPS Location (Mobile Devices)</strong>: If the user grants permission, GPS provides highly accurate location data.</li>
+                <li><strong>ASN (Autonomous System Number)</strong>: Each ISP is assigned a unique ASN, allowing the platform to infer the user’s general geographic region based on their IP address.</li>
+                <li><strong>Traceroute and Path Analysis</strong>: By mapping the path data takes across network nodes, platforms can refine location information, especially when routing through country-specific ISPs.</li>
+                <li><strong>CDN Location Detection</strong>: CDNs serve content from nodes close to users. By analyzing which CDN node serves the user, platforms can infer their location, as CDNs route data from the nearest regional node.</li>
+                <li><strong>SIM Card Information</strong>: Mobile devices can infer a user’s location based on the country code linked to their SIM card.</li>
+                <li><strong>Locale Settings (Device or App)</strong>: Applications can detect the default region settings on your device or app. For example, your device might be set to English as a language, but the region (locale) might be set to Thailand. This gives apps the ability to localize based on the region, even if the language preference is different.</li>
+                <li><strong>Wi-Fi Network Data</strong>: If the device is connected to a Wi-Fi network, apps can sometimes use the <strong>SSID</strong> (Wi-Fi network name) or the Wi-Fi network's geographic data to estimate a user's location. This is less common but can be used in combination with other methods.</li>
+                <li><strong>User-Provided Information</strong>: During account setup, apps may ask users to provide location details like their address or country.</li>
+                <li><strong>Browser Location Permissions (Web Apps)</strong>: Web browsers can request access to a user’s location, typically asking for consent.</li>
+            </ul>
+
+            <h2>Location Masking (Proxy Detection and VPN Handling)</h2>
+            <p><storng>The major concern is that platforms need to manage users who might use proxies or VPNs to mask their actual location, often for fraudulent purposes.</storng> The main reasons include:</p>
+            <ul>
+                <li><strong>Price Arbitrage</strong>: Prices for the same product may differ between countries due to factors like taxes, import duties, local competition, and economic conditions. Users can use VPNs to appear as if they are in a lower-cost region, thus buying products at a cheaper price.</li>
+                <li><strong>Region-Specific Promotions</strong>: E-commerce platforms often offer region-specific promotions, discounts, or free shipping offers based on local markets or holidays (e.g., Singles’ Day in China, Diwali in India). Users may try to fake their location with a VPN to access promotions that are not available in their actual region.</li>
+                <li><strong>Tax Differences</strong>: Some users might use a VPN to try and bypass local taxes or take advantage of regions with lower tax costs.</li>
+            </ul>
         </section>
     </main>
 
