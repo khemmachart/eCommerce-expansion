@@ -11,50 +11,28 @@
 
 <body>
     <header>
+        <h1 id="pageTitle">eCommerce Expansion Research and Development</h1>
         <nav id="navbar">
             <div class="menu-icon" onclick="toggleMenu()">
                 &#9776;
             </div>
             <ul class="nav-list">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="page1.html">Business goals</a></li>
+                <li><a href="page1.html">Business Goals</a></li>
                 <li><a href="page2.html">Technical Solution</a></li>
                 <li><a href="page3.html">Project Structure</a></li>
                 <li><a href="page4.html">Localization</a></li>
                 <li><a href="page5.html">Flutter-Web Adoption</a></li>
             </ul>
         </nav>
-        <h1 id="pageTitle">eCommerce Expansion Research and Development</h1>
     </header>
 
     <main>
         <section>
-            <h1>Software Architecture</h1>
-            <h2>Choosing MVVM with a Partial Adoption of Clean Architecture for Our Mobile App</h2>
-            <p>For the project structure, we prefer to use the MVVM (Model-View-ViewModel) pattern without fully adopting Clean Architecture. The main reason is that our application needs to focus on UI customization and localization for each market.</p>
+            <h1>Proposing an Architecture and Pattern and How Modules and/or Components Communicate</h1>
+            <p>For the project structure, <strong style="background-color: rgb(255, 255, 164);">I prefer to use the MVVM (Model-View-ViewModel) pattern without fully adopting Clean Architecture.</strong> The main reason is that our application needs to focus on UI customization and localization for each market and can delegate most of the business logic to the backend.</p>
             
-            <h3>Advantages of MVVM</h3>
-            <p>MVVM is a great choice for mobile apps that emphasize the presentation layer, like ours, for several reasons:</p>
-            <ul>
-                <li><strong>Separation of concerns</strong>: MVVM decouples the UI from business logic, making it easier to manage and update the UI without disrupting other layers.</li>
-                <li><strong>Simplified testing</strong>: The ViewModel in MVVM can be unit tested independently of the UI, improving test coverage and reliability.</li>
-                <li><strong>Easier data binding</strong>: MVVM supports two-way data binding, which makes the UI more reactive and updates automatically when the data changes.</li>
-                <li><strong>Flexibility</strong>: Since the API manages most of the data, MVVM allows us to focus on UI variations for different markets without adding complexity.</li>
-            </ul>
-
-            <h2>Overview of Clean Architecture and MVVM</h2>
-            <h4>Clean Architecture Overview</h4>
-            <p>Clean Architecture, popularized by Robert C. Martin (Uncle Bob), emphasizes a strong separation of concerns. It divides software into multiple layers, such as:</p>
-            <ul>
-                <li><strong>Entities</strong>: representing core business objects,</li>
-                <li><strong>Use Cases/Interactors</strong>: containing the business logic,</li>
-                <li><strong>Interface Adapters</strong>: for translating between external systems like UIs or APIs, and</li>
-                <li><strong>Frameworks and Drivers</strong>: handling infrastructure such as databases or network calls.</li>
-            </ul>
-            <p>The idea is to keep the core business logic independent from external frameworks and platforms, promoting testability and flexibility across the entire system.</p>
-            <img src="images/page3/1.png" alt="Placeholder Image" style="width: 100%; height: auto;">
-
-            <h4>MVVM Pattern Overview</h4>
+            <h2>Overview of MVVM Pattern</h2>
             <p>MVVM is a design pattern that organizes code into three key components:</p>
             <ul>
                 <li><strong>Model</strong>: Represents the data and business logic, usually fetched from a backend API.</li>
@@ -64,7 +42,30 @@
             <p>In mobile apps, the ViewModel plays a crucial role in handling user interactions and exposing data to the View, while the Model handles data-related logic.</p>
             <img src="images/page3/2.png" alt="Placeholder Image" style="width: 100%; height: auto;">
 
-            <h2>Why We Avoid Fully Adopting Clean Architecture</h2>
+            <h3>Advantages of MVVM</h3>
+            <p>MVVM is a great choice for mobile apps that emphasize the presentation layer, like ours, for several reasons:</p>
+            <ul>
+                <li><strong>Separation of concerns</strong>: MVVM decouples the UI from business logic, making it easier to manage and update the UI without disrupting other layers.</li>
+                <li><strong>Simplified testing</strong>: The ViewModel in MVVM can be unit tested independently of the UI, improving test coverage and reliability.</li>
+                <li><strong>Easier data binding</strong>: MVVM supports two-way data binding, which makes the UI more reactive and updates automatically when the data changes.</li>
+                <li><strong>Flexibility</strong>: Since the API manages most of the data, MVVM allows us to focus on UI variations for different markets without adding complexity.</li>
+            </ul>
+
+            <h2>Overview of Clean Architecture</h2>
+            <p>The <strong style="background-color: rgb(255, 255, 164);">Clean Architecture is not strictly a "design pattern"</strong>. Instead, it is better understood as an architectural style or set of design principles that guide how to structure a software system.</p>
+            <p>The core idea behind Clean Architecture is to promote the separation of concerns and independence between different layers of a system. This is achieved by organizing code in a way that keeps core business logic (the use cases) separate from infrastructure and frameworks, so the application can remain flexible, maintainable, and testable over time.</p>
+            
+            <p>Key principles of Clean Architecture include:</p>
+            <ul>
+                <li><strong>Independence from frameworks</strong>: The architecture should not be tightly coupled to a particular framework or tool.</li>
+                <li><strong>Testability</strong>: The business rules can be tested independently of external systems (like UI, databases, etc.).</li>
+                <li><strong>Separation of concerns</strong>: Different layers (such as business rules, UI, and infrastructure) should be well-defined and independent.</li>
+                <li><strong>Flexibility and adaptability</strong>: Changes in one part of the system (e.g., database or user interface) should not necessitate changes in another part (e.g., the business logic).</li>
+            </ul>
+            <p><strong style="background-color: rgb(255, 255, 164);">Clean Architecture can be adapted with other design patterns like MVP, MVVM, or MVC.</strong> These patterns are typically focused on managing interactions between UI components and business logic/data. You can implement MVP, MVVM, or MVC as part of the outer layers in a Clean Architecture design,</p>
+            <img src="images/page3/1.png" alt="Placeholder Image" style="width: 100%; height: auto;">
+
+            <h2>Why We Avoid Fully Adopting Clean Architecture in a Mobile Application Project</h2>
             <p>Given our team's context—being a small team with business goals focused mainly on UI (such as localization and different UI versions with a single codebase)—fully adopting Clean Architecture may be overkill.</p>
             <p>While Clean Architecture offers modularity and scalability, it can introduce unnecessary complexity in mobile apps where the backend handles most of the business logic. Here's why:</p>
             <ul>
@@ -78,7 +79,6 @@
             <h3>Breakdown of the Presentation Layer in a Mobile Application (Using Flutter)</h3>
             <p>In mobile development, especially with frameworks like Flutter, we can adapt the MVVM pattern within the presentation layer. The ViewModel handles data from the backend, preparing it for the UI, while the View is responsible for displaying it to the user. This approach aligns well with the reactive nature of Flutter and allows us to focus on creating highly customizable user interfaces without the need to manage complex business logic.</p>
             <img src="images/page3/5.png" alt="Placeholder Image" style="width: 100%; height: auto;">
-            <img src="images/page3/6.png" alt="Placeholder Image" style="width: 100%; height: auto;">
 
             <h2>Backend for Frontend (BFF) Overview</h3>
             <p>In cases where we need more control over business logic for specific mobile use cases, we can introduce a Backend for Frontend (BFF) layer. The BFF pattern is a design concept where a dedicated backend service is created to serve the needs of a specific frontend application. Rather than a generic API, the BFF is optimized for the UI it serves, offering:</p>
@@ -87,6 +87,7 @@
                 <li><strong>Decoupling business logic</strong>: Business logic specific to mobile apps (e.g., data aggregation, transformation) can be offloaded to the BFF, keeping the app lightweight.</li>
                 <li><strong>Performance improvements</strong>: By consolidating and streamlining API calls, the BFF improves performance and efficiency for mobile frontends.</li>
             </ul>
+            <img src="images/page3/6.png" alt="Placeholder Image" style="width: 100%; height: auto;">
 
             <p>In summary, while Clean Architecture can be a powerful tool for full-stack projects, we've chosen to focus on MVVM for our mobile app due to its emphasis on the presentation layer and the simplicity it offers for managing UI variations. Our backend handles the majority of the business logic, making Clean Architecture feel overly complex for this use case. By focusing on MVVM and potentially integrating a BFF, we can ensure that our app remains efficient, scalable, and easy to maintain while keeping the UI flexible and highly customizable.</p>
         </section>
