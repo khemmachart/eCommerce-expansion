@@ -90,6 +90,92 @@
             <img src="images/page3/6.png" alt="Placeholder Image" style="width: 100%; height: auto;">
 
             <p>In summary, while Clean Architecture can be a powerful tool for full-stack projects, we've chosen to focus on MVVM for our mobile app due to its emphasis on the presentation layer and the simplicity it offers for managing UI variations. Our backend handles the majority of the business logic, making Clean Architecture feel overly complex for this use case. By focusing on MVVM and potentially integrating a BFF, we can ensure that our app remains efficient, scalable, and easy to maintain while keeping the UI flexible and highly customizable.</p>
+            <h2 id="project-structure">Project and Folder Structure</h2>
+            <div style="padding: 30px 0 30px 50px; background-color: #333; color: white;">
+            <pre>
+lib/
+├── main.dart
+├── app/
+│   ├── app.dart
+│   ├── localization/
+│   │   ├── app_localizations.dart
+│   │   ├── app_localizations_en.dart
+│   │   ├── app_localizations_th.dart
+│   │   └── ... (other language files)
+│   ├── routes/
+│   │   └── app_routes.dart
+│   └── theme/
+│       └── app_theme.dart
+├── core/
+│   ├── constants/
+│   │   ├── api_endpoints.dart
+│   │   ├── app_constants.dart
+│   │   └── feature_flags.dart
+│   ├── exceptions/
+│   │   └── custom_exceptions.dart
+│   ├── services/
+│   │   ├── api_service.dart
+│   │   ├── localization_service.dart
+│   │   ├── location_service.dart
+│   │   ├── feature_flag_service.dart
+│   │   └── ... (other services)
+│   └── utils/
+│       ├── validators.dart
+│       └── helpers.dart
+├── data/
+│   ├── models/
+│   │   ├── product_model.dart
+│   │   ├── cart_model.dart
+│   │   ├── order_model.dart
+│   │   └── ... (other models)
+│   └── repositories/
+│       ├── product_repository.dart
+│       ├── cart_repository.dart
+│       ├── order_repository.dart
+│       └── ... (other repositories)
+├── view/
+│   ├── screens/
+│   │   ├── home/
+│   │   │   ├── home_screen.dart
+│   │   │   ├── home_view_model.dart
+│   │   │   └── widgets/
+│   │   │       └── ... (home widgets)
+│   │   ├── product_details/
+│   │   │   ├── product_details_screen.dart
+│   │   │   ├── product_details_view_model.dart
+│   │   │   └── widgets/
+│   │   │       └── ... (product details widgets)
+│   │   ├── cart/
+│   │   │   ├── cart_screen.dart
+│   │   │   ├── cart_view_model.dart
+│   │   │   └── widgets/
+│   │   │       └── ... (cart widgets)
+│   │   └── ... (other screens)
+│   └── widgets/
+│       ├── common/
+│       │   ├── app_bar.dart
+│       │   ├── drawer.dart
+│       │   └── ... (common widgets)
+│       └── region_specific/
+│           ├── promotion_banner.dart
+│           └── ... (region-specific widgets)
+├── assets/
+│   ├── images/
+│   │   └── ... (image assets)
+│   ├── fonts/
+│   │   └── ... (font files)
+│   └── translations/
+│       ├── en.json
+│       ├── th.json
+│       └── ... (other translation files)
+├── tests/
+│   ├── unit/
+│   │   └── ... (unit tests)
+│   └── widget/
+│       └── ... (widget tests)
+pubspec.yaml
+        </pre>
+    </div>
         </section>
     </main>
 
